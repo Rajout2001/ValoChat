@@ -1,0 +1,68 @@
+datasource db {
+  // could be postgresql or mysql
+  provider = "postgres"
+  url      = "postgres://postgres.ylxlyubijzvuijihvmjk:projet_pc3r@aws-0-eu-central-1.pooler.supabase.com:5432/postgres?connect_timeout=300"
+}
+ 
+generator db {
+  provider = "go run github.com/steebchen/prisma-client-go"
+}
+ 
+model matchResult {
+  id        String   @default(cuid()) @id
+  team1     String
+  team2     String
+  score1    String
+  score2    String
+  flag1     String
+  flag2     String
+  time_completed String
+  round_info String
+  tournament_name String
+  match_page String
+  tournament_icon String
+  chat_id   String   @unique
+  chat      Chat     @relation(fields: [chat_id],references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model User {
+    id        String    @id @default(cuid())
+    name      String
+    email     String    @unique
+    password  String?
+    photo     String?   @default("https://img.freepik.com/premium-vector/kid-programming-icon-flat-vector-school-computer-education-code-technology-isolated_98396-57669.jpg?size=626&ext=jpg&ga=GA1.1.1795466942.1712177977&semt=ais")
+    createdAt DateTime  @default(now())
+    updatedAt DateTime  @updatedAt
+    Message   Message[]
+    chats     Chat[]
+}
+
+model Chat {
+    id       String    @id @default(cuid())
+    date     DateTime  @default(now())
+    name     String
+    photo    String?   @default("https://cryptologos.cc/logos/chatcoin-chat-logo.png?v=029")
+    match    matchResult?
+    users    User[]
+    Messages Message[]
+}
+
+model Message {
+    id         String   @id @default(cuid())
+    content    String
+    created_at DateTime @default(now())
+    updated_at DateTime @updatedAt
+    chat_id    String
+    chat       Chat     @relation(fields: [chat_id], references: [id], onDelete: Cascade)
+    user_id    String
+    user       User     @relation(fields: [user_id], references: [id], onDelete: Cascade)
+}
+
+model newsLetter {
+    id        String   @id @default(cuid())
+    email     String   @unique
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+}

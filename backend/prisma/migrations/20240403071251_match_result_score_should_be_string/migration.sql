@@ -1,0 +1,3 @@
+-- AlterTable
+ALTER TABLE "matchResult" ALTER COLUMN "score1" SET DATA TYPE TEXT,
+ALTER COLUMN "score2" SET DATA TYPE TEXT;

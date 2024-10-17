@@ -1,0 +1,12 @@
+2024/04/29 01:57:13 Server crashed: listen tcp :5000: bind: address already in use
+2024/04/29 01:57:18 Server crashed: listen tcp :5000: bind: address already in use
+2024/04/29 01:57:24 Server crashed: listen tcp :5000: bind: address already in use
+2024/04/29 01:57:33 Can't reach database server at `aws-0-eu-central-1.pooler.supabase.com`:`5432`
+
+Please make sure your database server is running at `aws-0-eu-central-1.pooler.supabase.com`:`5432`.
+2024/04/29 01:57:33 Server crashed: listen tcp :5000: bind: address already in use
+2024/04/29 01:58:42 Can't reach database server at `aws-0-eu-central-1.pooler.supabase.com`:`5432`
+
+Please make sure your database server is running at `aws-0-eu-central-1.pooler.supabase.com`:`5432`.
+2024/04/29 01:59:19 socket read error: websocket: close 1005 (no status)
+2024/04/29 02:01:12 socket read error: websocket: close 1005 (no status)
